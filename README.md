@@ -20,7 +20,6 @@ write them onto a JSON file.
 The results have been written onto this simple json file: `pal_categories.json`.
 **Sample output**
 ```JSON
-],
   "Legendary": [
     "Frostallion",
     "Frostallion Noct",

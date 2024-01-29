@@ -6,3 +6,6 @@ In order to install beautiful soup, run this command in bash:
 ```Shell
 vagrant@ubuntu-focal:~/PP_Introduction_to_Beautiful_Soup$ pip install beautifulsoup4
 ```
+```Shell
+vagrant@ubuntu-focal:~/PP_Introduction_to_Beautiful_Soup$ pip install lxml
+```

@@ -4,12 +4,14 @@ from bs4 import BeautifulSoup
 import requests
 import csv
 
+page_number = 1
+
 # Open the file outside of the loop
 with open("scraped_quotes_pages_1_10.csv", "w", newline='', encoding='utf-8') as file_results:
     writer = csv.writer(file_results)
     writer.writerow(["Quotes", "Authors"])
 
-    for page_number in range(1, 10):
+    while True:
         url = f"https://quotes.toscrape.com/page/{page_number}"
         # Using the requests library to send an HTTP GET request to the and retrieve the HTML content of the webpage
         response = requests.get(url)
@@ -24,3 +26,11 @@ with open("scraped_quotes_pages_1_10.csv", "w", newline='', encoding='utf-8') as
         for quote, author in zip(quotes, authors):
             print(quote.text + " - " + author.text)
             writer.writerow([quote.text, author.text])
+
+        # Check if the next button exists
+        next_button = soup.find('li', class_='next')
+
+        if next_button:
+            page_number += 1
+        else:
+            break
